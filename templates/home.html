@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<h1>MadLibs</h1>
+<form method="POST">
+  <label for="story_id">Choose a story:</label>
+  <select name="story_id" required>
+    <option value="">Select a story</option>
+    {% for story_id, story in stories.items() %}
+    <option value="{{ story_id }}">{{ story_id }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">Select Story</button>
+</form>
+{% endblock %}

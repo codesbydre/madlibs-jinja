@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Enter the words for the story</h1>
+<form action="{{ url_for('create_story') }}" method="POST">
+  <input type="hidden" name="story_id" value="{{ story_id }}" />
+  {% for prompt in prompts %}
+  <label for="{{ prompt }}">{{ prompt.capitalize() }}:</label>
+  <input
+    type="text"
+    id="{{ prompt }}"
+    name="{{ prompt }}"
+    required
+  /><br /><br />
+  {% endfor %}
+  <button type="submit">Generate Story</button>
+</form>
+{% endblock %}
